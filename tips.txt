@@ -1,0 +1,9 @@
+Run from command line
+	1. With dev tools
+		mvnw -Pdev spring-boot:run
+	2. Pure app
+		1. ./mvnw package -s settings.xml -DskipTests
+			Use local settings.xml in case you have some global corrupted settings.xml.
+		2. java -jar target/base-0.0.1-SNAPSHOT.jar &
+
+
