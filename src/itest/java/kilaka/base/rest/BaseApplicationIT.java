@@ -9,12 +9,10 @@ import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
-import java.text.MessageFormat;
-
 //todo: Simpler way to test rest api.
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-class BaseApplicationTests
+class BaseApplicationIT
 {
 	@LocalServerPort
 	private int port;
@@ -26,7 +24,7 @@ class BaseApplicationTests
 	public void testPersonAvailable()
 	{
 		ResponseEntity<String> entity = this.testRestTemplate.getForEntity(
-				MessageFormat.format("http://localhost:{0,number,#}/api/available/aaa", port), String.class);
+				"http://localhost:" + port + "/api/available/aaaaa", String.class);
 
 		BDDAssertions.then(entity.getStatusCode()).isEqualTo(HttpStatus.OK);
 	}

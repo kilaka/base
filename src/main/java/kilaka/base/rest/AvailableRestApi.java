@@ -10,7 +10,7 @@ import java.text.MessageFormat;
 public class AvailableRestApi
 {
 	@GetMapping("/available/{id}")
-	public String isAvailable(@PathVariable() String id)
+	public String isAvailable(@PathVariable String id)
 	{
 		return MessageFormat.format("{0} is available!!!!", id);
 	}
